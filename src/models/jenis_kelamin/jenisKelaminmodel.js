@@ -18,7 +18,7 @@ const JenisKelamin = sequelize.define(
 
         nama: {
             tpye: DataTypes.STRING(20),
-            allowNull: flase
+            allowNull: false,
         },
 
         create_at: {
