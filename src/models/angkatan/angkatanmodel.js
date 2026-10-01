@@ -1,24 +1,19 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
 
-const JenisKelamin = sequelize.define(
-    "JenisKelamin",
+const Angkatan = sequelize.define(
+    "Angkatan",
     {
-        id_jenis_kelamin: {
+        id_angkatan: {
             type: DataTypes.CHAR(36),
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true
         },
 
-        kode: {
-            type: DataTypes.CHAR(1),
+        tahun_ajaran: {
+            type: DataTypes.CHAR(9),
             allowNull: false,
             unique: true
-        },
-
-        nama: {
-            type: DataTypes.STRING(20),
-            allowNull: false,
         },
 
         create_at: {
@@ -38,9 +33,9 @@ const JenisKelamin = sequelize.define(
 
     },
     {
-        tableName: "jenis_kelamin",
+        tableName: "angkatan",
         timestamps: false
     }
 );
 
-module.exports = JenisKelamin;
+module.exports = Angkatan;

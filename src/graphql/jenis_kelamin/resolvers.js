@@ -26,7 +26,7 @@ const resolvers = {
                     [Op.or]: [
                         {
                             kode: {
-                                [Op.like]: '%${keyword}%'
+                                [Op.like]: `%${keyword}%`
                             }
                         }
                     ]
@@ -37,7 +37,7 @@ const resolvers = {
             });
         }
     },
-    
+            
     Mutation: {
         tambahJenisKelamin: async (_, { input }) => {
             const waktu = new Date();
@@ -65,7 +65,7 @@ const resolvers = {
 
             return data;
         },
-        deleteJenisKelammin: async (_, { id }) => {
+        deleteJenisKelamin: async (_, { id }) => {
             const data = await JenisKelamin.findOne({
                 where: {
                     id_jenis_kelamin: id
@@ -78,7 +78,7 @@ const resolvers = {
                 delete_at: new Date(),
                 update_at: new Date()
             });
-            return date;
+            return data;
         },
         restoreJenisKelamin: async (_, { id }) => {
             const data = await JenisKelamin.findOne({
